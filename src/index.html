@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота 1: Gulp Layout</title>
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+    <div class="container">
+        <header class="box header-top">
+            <p>Header (Верхня частина)</p>
+        </header>
+        <nav class="box nav-top">
+            <p>Nav (Головне меню)</p>
+        </nav>
+        
+        <div class="box main-content">
+            <section class="box section-left">
+                <header class="box">
+                    <p>Header (Section)</p>
+                </header>
+                <article class="box article-main">
+                    <header class="box">
+                        <p>Header (Article)</p>
+                    </header>
+                    <p class="box p-main">Параграф 1 (Основний)</p>
+                    
+                    <div class="box content-group">
+                        <p class="box p-left">Параграф 2 (Лівий)</p>
+                        <aside class="box aside-right">
+                            <p>Aside</p>
+                        </aside>
+                    </div>
+                    
+                    <footer class="box footer-article">
+                        <p>Footer (Article)</p>
+                    </footer>
+                </article>
+            </section>
+            
+            <section class="box section-right">
+                <header class="box">
+                    <p>Header (Sidebar Section)</p>
+                </header>
+                <nav class="box nav-right">
+                    <p>Nav (Праве меню)</p>
+                </nav>
+            </section>
+        </div>
+        
+        <footer class="box footer-bottom">
+            <p>Footer (Нижня частина)</p>
+        </footer>
+    </div>
+</body>
+</html>

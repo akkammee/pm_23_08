@@ -1,0 +1,124 @@
+/* --- Глобальні змінні та базові стилі --- */
+$font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$color-primary: #007bff; // Синій для акцентів
+$color-text: #333;
+$color-bg-light: #f8f9fa; // Дуже світлий фон
+$color-bg-dark: #343a40; // Темний фон для хедера/футера
+$spacing: 1.5rem; // Стандартний відступ
+
+body {
+    margin: 0;
+    font-family: $font-family;
+    color: $color-text;
+    background-color: #fff;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* --- Стилізація основних елементів --- */
+
+// Стиль для всіх структурних елементів
+.box {
+    padding: $spacing;
+    margin-bottom: $spacing * 0.5;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Легка тінь
+    border-radius: 4px;
+}
+
+h1, h2, h3 {
+    color: $color-primary;
+}
+
+/* --- Блоки Header та Navigation (Верхня частина) --- */
+
+.header-top {
+    background-color: $color-bg-dark;
+    color: #fff;
+    box-shadow: none;
+    border-radius: 0;
+    padding: $spacing 0;
+}
+
+.header-top p {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-top {
+    background-color: $color-primary;
+    color: #fff;
+    padding: 0.5rem $spacing;
+    border-radius: 0;
+}
+
+.nav-top p {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* --- ОСНОВНА ЧАСТИНА (Використовуємо CSS Grid для адаптивності) --- */
+
+.main-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr; // Ліва колонка вдвічі ширша
+    gap: $spacing;
+    margin-top: $spacing;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    margin-bottom: 0;
+}
+
+.section-left {
+    background-color: $color-bg-light;
+}
+
+.section-right {
+    background-color: $color-bg-light;
+}
+
+/* --- КОНТЕНТ ЛІВОЇ КОЛОНКИ (SECTION) --- */
+.article-main {
+    background-color: #fff;
+    border-left: 5px solid $color-primary; // Акцентна лінія
+}
+
+.content-group {
+    display: flex;
+    gap: $spacing;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+}
+
+.p-left, .aside-right {
+    flex: 1;
+    background-color: #fff;
+    min-height: 150px;
+}
+
+/* --- НИЖНІЙ БЛОК --- */
+.footer-bottom {
+    background-color: $color-bg-dark;
+    color: #fff;
+    text-align: center;
+    padding: $spacing;
+    margin-top: $spacing;
+}
+
+/* --- АДАПТИВНІСТЬ для мобільних пристроїв --- */
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr; // Перемикаємо на одну колонку
+    }
+    .content-group {
+        flex-direction: column; // Блоки йдуть один за одним
+    }
+}
