@@ -1,76 +1,88 @@
-// 1. Імпорт модулів
 const { src, dest, watch, series, parallel } = require('gulp');
-const fileinclude = require('gulp-file-include');
 const sass = require('gulp-sass')(require('sass'));
 const cssnano = require('gulp-cssnano');
-const uglify = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
+const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
 const browserSync = require('browser-sync').create();
+const fileInclude = require('gulp-file-include');
 
-// Шляхи для зручності
-const paths = {
-    src: 'src/',
-    dist: 'dist/'
-};
+// --- Bootstrap таски ---
+const bootstrapCSS = () => {
+    return src('node_modules/bootstrap/dist/css/bootstrap.min.css')
+        .pipe(dest('dist/css'));
+}
 
-// 2. Таск для HTML (обробка HTML з file include)
-function htmlTask() {
-    return src(paths.src + 'index.html')
-        .pipe(fileinclude({
+const bootstrapJS = () => {
+    return src('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js')
+        .pipe(dest('dist/js'));
+}
+
+// --- HTML таска (об’єднання всіх сторінок та компонентів) ---
+const html_task = () => {
+    return src('src/app/*.html') // головні html файли
+        .pipe(fileInclude({
             prefix: '@@',
             basepath: '@file'
         }))
-        .pipe(dest(paths.dist))
+        .pipe(dest('dist'))
         .pipe(browserSync.stream());
-}
+};
 
-// 3. Таск для SCSS (компіляція та мініфікація)
-function scssTask() {
-    return src(paths.src + 'scss/**/*.scss', { sourcemaps: true })
+// --- SCSS таска (всі SCSS з компонентів та глобальні) ---
+const scss_task = () => {
+    return src([
+        'src/app/scss/**/*.scss'
+    ])
         .pipe(sass().on('error', sass.logError))
+        .pipe(concat('style.min.css'))
         .pipe(cssnano())
-        .pipe(dest(paths.dist + 'css', { sourcemaps: '.' }))
+        .pipe(dest('dist/css'))
         .pipe(browserSync.stream());
-}
+};
 
-// 4. Таск для JavaScript (мініфікація)
-function jsTask() {
-    return src(paths.src + 'js/**/*.js', { sourcemaps: true })
+// --- JS таска (усі JS з компонентів) ---
+const js_task = () => {
+    return src('src/app/js/**/*.js')
+        .pipe(concat('script.min.js'))
         .pipe(uglify())
-        .pipe(dest(paths.dist + 'js', { sourcemaps: '.' }))
+        .pipe(dest('dist/js'))
         .pipe(browserSync.stream());
-}
+};
 
-// 5. Таск для зображень (оптимізація)
-function imgTask() {
-    return src(paths.src + 'imgs/**/*')
+// --- Images таска ---
+const img_task = () => {
+    return src('src/app/img/**/*.{webp,png,jpg,jpeg,svg}', { encoding: false })
         .pipe(imagemin())
-        .pipe(dest(paths.dist + 'imgs'));
-}
+        .pipe(dest('dist/img'))
+        .pipe(browserSync.stream());
+};
 
-// 6. Таск для Server (синхронізація з браузером)
-function browserSyncServe(cb) {
+// --- JSON таска ---
+const json_task = () => {
+    return src('src/app/json/*.json')
+        .pipe(dest('dist/json'))
+        .pipe(browserSync.stream());
+};
+
+// --- BrowserSync та Watch ---
+const serve = () => {
     browserSync.init({
         server: {
-            baseDir: paths.dist
+            baseDir: 'dist'
         }
     });
-    cb();
-}
 
-// 7. Таск Watch (відстеження змін)
-function watchTask() {
-    watch([paths.src + '**/*.html'], htmlTask);
-    watch([paths.src + 'scss/**/*.scss'], scssTask);
-    watch([paths.src + 'js/**/*.js'], jsTask);
-    watch([paths.src + 'imgs/**/*'], imgTask);
-}
+    watch('src/app/**/*.html', html_task);
+    watch('src/app/**/*.scss', scss_task);
+    watch('src/app/js/**/*.js', js_task);
+    watch('src/app/img/**/*', img_task);
+    watch('src/app/json/*.json', json_task);
+};
 
-// 8. Таск "default" (запуск збірки та watcher)
+// --- Default таска ---
 exports.default = series(
-    parallel(htmlTask, scssTask, jsTask, imgTask), 
-    browserSyncServe,
-    watchTask 
+    parallel(html_task, scss_task, js_task, img_task, json_task, bootstrapCSS, bootstrapJS),
+    serve
 );
 
-exports.build = parallel(htmlTask, scssTask, jsTask, imgTask);

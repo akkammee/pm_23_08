@@ -1,0 +1,117 @@
+.head-pd{
+  display: flex;
+  padding-top: 50px;
+  padding-bottom: 35px;
+}
+
+.block-1{
+  height: 280px;
+  width: 80px;
+  background-color: #333333;
+}
+
+.contact-box {
+  height: 280px;
+  width: 300px;
+  background: #333;
+  padding: 20px;
+  color: #fff;
+  margin-left: auto;
+}
+
+.contact-box h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-family: "Raleway";
+}
+
+.rw {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.rw i {
+  width: 24px;
+  text-align: center;
+}
+
+.info p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.icon{
+  color: #333333;
+  font-size: 16px;
+}
+
+.bg-icon{
+  height: 25px;
+  width: 25px;
+  margin-top: 12px;
+  background-color: white;
+}
+
+.bg-icon-2{
+  margin-top:  8px;
+  height: 35px;
+  width: 35px;
+  background-color: white;
+}
+
+.icon-2{
+  margin-top: 5px;
+  margin-left: 5px;
+  text-align: center;
+  font-size: 25px;
+  color: #333333;
+}
+
+.text-4{
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.text-1{
+  margin-left: 30px;
+  font-size: 90px;
+  text-transform: uppercase;
+  color: #333333;
+  font-weight: bold;
+}
+
+.text-2{
+  margin-left: 30px;
+  margin-top: -45px;
+  font-size: 90px;
+  text-transform: uppercase;
+  color: #333333;
+  font-weight: bold;
+}
+
+.text-3{
+  margin-left: 30px;
+  margin-top: -20px;
+  font-size: 25px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #333333;
+  font-weight: 400;
+}
+
+.img{
+  height: 280px;
+  width: 280px;
+  border:  10px solid #333333;
+}
+
+.block-2{
+  margin-left: 30px;
+}

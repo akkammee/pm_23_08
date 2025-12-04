@@ -1,6 +1,0 @@
-# Папки, які мають бути ігноровані Git
-/node_modules
-/dist
-
-# Файли конфігурації Node
-package-lock.json
