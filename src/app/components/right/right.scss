@@ -2,3 +2,82 @@
   padding-left: 50px;
   padding-right: 60px;
 }
+
+.bg-icon-3{
+  background-color: #333333;
+  height: 35px;
+  width: 35px;
+}
+
+.icon-3{
+  color: white;
+  font-size: 20px;
+  margin: 6px;
+}
+
+.text-5{
+  margin-top: -5px;
+  font-size: 26px;
+  text-transform: uppercase;
+  color: #333333;
+  font-weight: bold;
+}
+
+.text-6{
+  font-size: 18px;
+  color: #333333;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.text-7{
+  font-size: 14px;
+  color: #333333;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.text-8{
+  font-size: 14px;
+  color: #333333;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.h-line{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 1px;
+  width: 100%;
+  background-color: #333333;
+}
+
+.pd{
+  margin-left: -10px;
+}
+
+.pd-2{
+  margin-left: -10px;
+  margin-bottom: 15px;
+}
+
+.exp-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.years{
+  font-weight: 500;
+}
+
+.company{
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 16px;
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  word-spacing: 1px;
+}
