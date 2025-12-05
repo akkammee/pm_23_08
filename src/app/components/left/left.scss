@@ -8,7 +8,7 @@
   justify-content: space-between;
   width: 350px;
   margin: 14px 0;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: #333333;
 }
@@ -19,7 +19,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 input[type="range"] {
   -webkit-appearance: none;
-  width: 140px;
+  width: 170px;
   height: 9px;
   background: #eeeeee;
   overflow: hidden;
@@ -35,4 +35,43 @@ input[type="range"]::-webkit-slider-thumb {
   width: 0;
   height: 0;
   box-shadow: -200px 0 0 200px #333333;
+}
+
+.pd-3{
+  margin-top: 45px;
+  margin-left: 60px;
+  margin-right: 50px;
+}
+
+.text-9 {
+  font-size: 19px;
+  line-height: 28px;
+  color: #333333;
+  font-weight: 350;
+  text-align: justify;
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.h-line-2{
+  height: 1.5px;
+  width: 100%;
+  background: #333333;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.language-fl{
+  display: flex;
+  gap: 8px;
+}
+
+.lang {
+  border: 3px solid #333;
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #333;
+  cursor: default;
+  font-weight: bold;
 }
