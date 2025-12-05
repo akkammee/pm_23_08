@@ -1,43 +1,114 @@
-.head-pd{
+// -------------------------
+// 🔹 ЗМІННІ
+// -------------------------
+$black: #333333;
+$white: #ffffff;
+
+$font-main: "Raleway";
+$transition: 0.3s ease;
+
+$pc: 1440px;
+$laptop: 1200px;
+$tablet: 768px;
+$phone: 480px;
+
+// -------------------------
+// 🔹 МІКСІНИ
+// -------------------------
+$pc: 1440px;
+$laptop: 1200px;
+$tablet: 768px;
+$phone: 480px;
+
+@mixin responsive($property, $pcSize, $laptopSize, $tabletSize, $phoneSize) {
+
+  #{$property}: $pcSize;
+
+  @media (min-width: $laptop) and (max-width: $pc) {
+    #{$property}: $laptopSize;
+  }
+
+  @media (min-width: $tablet) and (max-width: $laptop) {
+    #{$property}: $tabletSize;
+  }
+
+  @media (min-width: $phone) and (max-width: $tablet) {
+    #{$property}: $phoneSize;
+  }
+
+  @media (max-width: $phone) {
+    #{$property}: $phoneSize;
+  }
+}
+
+
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+// -------------------------
+// 🔹 ОСНОВНІ БЛОКИ
+// -------------------------
+
+.head-pd {
   display: flex;
   padding-top: 50px;
   padding-bottom: 50px;
+
+  @include responsive(padding-top, 50px, 40px, 30px, 20px);
+  @include responsive(padding-bottom, 50px, 40px, 30px, 20px);
 }
 
-.block-1{
-  height: 280px;
-  width: 80px;
-  background-color: #333333;
+.block-1 {
+  @include size(80px, 280px);
+  background-color: $black;
+
+  @include responsive(width, 80px, 70px, 60px, 45px);
+  @include responsive(height, 280px, 260px, 240px, 200px);
 }
+
+// -------------------------
+// 🔹 CONTACT BOX
+// -------------------------
 
 .contact-box {
-  height: 280px;
-  width: 300px;
-  background: #333;
+  @include size(300px, 280px);
+  background: $black;
   padding: 20px;
-  color: #fff;
+  color: $white;
   margin-left: auto;
+
+  @include responsive(width, 300px, 280px, 260px, 220px);
+  @include responsive(height, 280px, 260px, 240px, 220px);
+
+  h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-family: $font-main;
+
+    @include responsive(font-size, 22px, 20px, 18px, 16px);
+  }
 }
 
-.contact-box h2 {
+.base-flex {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  font-size: 22px;
-  font-family: "Raleway";
 }
 
 .rw {
-  display: flex;
+  @extend .base-flex;
   align-items: flex-start;
   gap: 15px;
   margin-bottom: 20px;
-}
 
-.rw i {
-  width: 24px;
-  text-align: center;
+  i {
+    width: 24px;
+    text-align: center;
+  }
 }
 
 .info p {
@@ -45,73 +116,94 @@
   line-height: 1.4;
 }
 
-.icon{
-  color: #333333;
+.icon {
+  color: $black;
   font-size: 16px;
+
+  @include responsive(font-size, 16px, 15px, 14px, 12px);
 }
 
-.bg-icon{
-  height: 25px;
-  width: 25px;
+.bg-icon {
+  @include size(25px, 25px);
   margin-top: 12px;
-  background-color: white;
+  background-color: $white;
+
+  @include responsive(width, 25px, 23px, 20px, 18px);
+  @include responsive(height, 25px, 23px, 20px, 18px);
 }
 
-.bg-icon-2{
-  margin-top:  8px;
-  height: 35px;
-  width: 35px;
-  background-color: white;
+.bg-icon-2 {
+  margin-top: 8px;
+  @include size(35px, 35px);
+  background-color: $white;
+
+  @include responsive(width, 35px, 32px, 28px, 24px);
+  @include responsive(height, 35px, 32px, 28px, 24px);
 }
 
-.icon-2{
+.icon-2 {
   margin-top: 5px;
   margin-left: 5px;
   text-align: center;
   font-size: 25px;
-  color: #333333;
+  color: $black;
+
+  @include responsive(font-size, 25px, 23px, 20px, 18px);
 }
 
-.text-4{
+.text-4 {
   font-size: 30px;
   text-transform: uppercase;
-  color: #ffffff;
+  color: $white;
   font-weight: bold;
+
+  @include responsive(font-size, 30px, 26px, 22px, 18px);
 }
 
-.text-1{
+.text-base {
   margin-left: 30px;
-  font-size: 90px;
   text-transform: uppercase;
-  color: #333333;
+  color: $black;
   font-weight: bold;
 }
 
-.text-2{
-  margin-left: 30px;
+.text-1 {
+  @extend .text-base;
+  font-size: 90px;
+
+  @include responsive(font-size, 90px, 70px, 55px, 40px);
+}
+
+.text-2 {
+  @extend .text-base;
   margin-top: -45px;
   font-size: 90px;
-  text-transform: uppercase;
-  color: #333333;
-  font-weight: bold;
+
+  @include responsive(font-size, 90px, 70px, 55px, 40px);
+  @include responsive(margin-top, -45px, -35px, -25px, -15px);
 }
 
-.text-3{
-  margin-left: 30px;
+.text-3 {
+  @extend .text-base;
   margin-top: -20px;
   font-size: 25px;
   letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #333333;
   font-weight: 400;
+
+  @include responsive(font-size, 25px, 22px, 18px, 16px);
+  @include responsive(letter-spacing, 2px, 2px, 1px, 1px);
 }
 
-.img{
-  height: 280px;
-  width: 280px;
-  border:  10px solid #333333;
+.img {
+  @include size(280px, 280px);
+  border: 10px solid $black;
+
+  @include responsive(width, 280px, 250px, 220px, 180px);
+  @include responsive(height, 280px, 250px, 220px, 180px);
 }
 
-.block-2{
+.block-2 {
   margin-left: 25px;
+
+  @include responsive(margin-left, 25px, 20px, 15px, 10px);
 }

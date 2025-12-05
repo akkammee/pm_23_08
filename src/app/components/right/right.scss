@@ -1,77 +1,165 @@
-.right-pd{
-  padding-left: 50px;
-  padding-right: 60px;
+$pc: 1440px;
+$laptop: 1200px;
+$tablet: 768px;
+$phone: 480px;
+
+@mixin between($from, $to) {
+  @media (min-width: $from) and (max-width: $to) {
+    @content;
+  }
 }
 
-.bg-icon-3{
+@mixin down($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+.right-pd {
+  padding-left: 50px;
+  padding-right: 60px;
+
+  @include down($laptop) {
+    padding-left: 30px;
+    padding-right: 40px;
+  }
+
+  @include down($tablet) {
+    padding-left: 20px;
+    padding-right: 25px;
+  }
+
+  @include down($phone) {
+    padding-left: 10px;
+    padding-right: 15px;
+  }
+}
+
+.bg-icon-3 {
   background-color: #333333;
   height: 35px;
   width: 35px;
+
+  @include down($tablet) {
+    height: 30px;
+    width: 30px;
+  }
+
+  @include down($phone) {
+    height: 26px;
+    width: 26px;
+  }
 }
 
-.icon-3{
+.icon-3 {
   color: white;
   font-size: 20px;
   margin: 6px;
+
+  @include down($tablet) {
+    font-size: 18px;
+  }
+
+  @include down($phone) {
+    font-size: 16px;
+  }
 }
 
-.text-5{
+.text-5 {
   margin-top: -5px;
   font-size: 26px;
   text-transform: uppercase;
   color: #333333;
   font-weight: bold;
+
+  @include down($tablet) {
+    font-size: 22px;
+  }
+
+  @include down($phone) {
+    font-size: 20px;
+  }
 }
 
-.text-6{
+.text-6 {
   font-size: 18px;
   color: #333333;
   font-weight: 700;
   margin-left: 10px;
+
+  @include down($tablet) {
+    font-size: 16px;
+  }
 }
 
-.text-7{
+.text-7,
+.text-8 {
   font-size: 14px;
   color: #333333;
   font-weight: 500;
   margin-left: 10px;
+
+  @include down($tablet) {
+    font-size: 13px;
+  }
 }
 
-.text-8{
-  font-size: 14px;
-  color: #333333;
-  font-weight: 500;
-  margin-left: 10px;
-}
-
-.h-line{
+.h-line {
   margin-top: 40px;
   margin-bottom: 40px;
   height: 1.5px;
   width: 100%;
   background-color: #333333;
+
+  @include down($tablet) {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  @include down($phone) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 }
 
-.pd{
+.pd {
   margin-left: -10px;
+
+  @include down($phone) {
+    margin-left: 0;
+  }
 }
 
-.pd-2{
+.pd-2 {
   margin-left: -10px;
   margin-bottom: 15px;
+
+  @include down($phone) {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
 }
 
-.exp-header{
+.exp-header {
   display: flex;
   justify-content: space-between;
+
+  @include down($tablet) {
+    flex-direction: column;
+    gap: 5px;
+  }
 }
 
-.years{
+.years {
   font-weight: 500;
 }
 
-.company{
+.company {
   margin-bottom: 10px;
+
+  @include down($phone) {
+    margin-bottom: 5px;
+  }
 }
 
 .desc {
@@ -80,6 +168,12 @@
   display: block;
   margin-bottom: 10px;
   word-spacing: 1px;
+
+  @include down($tablet) {
+    font-size: 15px;
+  }
+
+  @include down($phone) {
+    font-size: 14px;
+  }
 }
-
-
