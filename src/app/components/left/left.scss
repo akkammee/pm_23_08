@@ -1,3 +1,38 @@
 .left-bg{
   background-color: #eeeeee;
 }
+
+.skill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 350px;
+  margin: 14px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 140px;
+  height: 9px;
+  background: #eeeeee;
+  overflow: hidden;
+  border: 2px solid #333333;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  background: #eeeeee;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  width: 0;
+  height: 0;
+  box-shadow: -200px 0 0 200px #333333;
+}
