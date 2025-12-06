@@ -1,0 +1,25 @@
+{
+  "firstName": "NOEL",
+  "lastName": "TAYLOR",
+
+  "skills": [
+    { "name": "Adobe Photoshop", "value": 75 },
+    { "name": "Adobe Illustrator", "value": 70 },
+    { "name": "Microsoft PowerPoint", "value": 60 },
+    { "name": "Microsoft Word", "value": 65 },
+    { "name": "HTML-5/CSS-3", "value": 80 }
+  ],
+
+  "languages": ["ENGLISH", "SPANISH", "FRENCH"],
+
+  "hobbies": [
+    { "name": "Book Reading", "value": 60 },
+    { "name": "Traveling", "value": 60 },
+    { "name": "Playing Chess", "value": 60 }
+  ],
+
+  "aboutMe": {
+    "title": "ABOUT ME",
+    "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  }
+}
