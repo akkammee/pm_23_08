@@ -126,3 +126,37 @@ input[type="range"]::-webkit-slider-thumb {
   @include responsive(font-size, 16px, 15px, 14px, 13px);
   @include responsive(padding, 12px 20px, 10px 18px, 9px 16px, 8px 14px);
 }
+
+.about-me {
+  width: 100%;
+}
+
+.about-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding-right: 15px;
+}
+
+.about-header .arrow {
+  margin-left: auto;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.about-header.active .arrow {
+  transform: rotate(-90deg);
+}
+
+.about-content {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.about-content.open {
+  max-height: 500px;
+  opacity: 1;
+}

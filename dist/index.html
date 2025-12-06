@@ -15,8 +15,8 @@
                 <div class="head-pd">
     <div class="block-1"></div>
     <div>
-        <div class="text-1">NOEL</div>
-        <div class="text-2">TAYLOR</div>
+        <div class="text-1" id="firstName"></div>
+        <div class="text-2" id="lastName"></div>
         <div class="text-3">GRAPHIC & WEB DESIGNER</div>
     </div>
     <div class="block-2">
@@ -55,22 +55,25 @@
             </div>
             <div class="col-5 px-0 left-bg">
                 <div class="pd-3">
-    <div class="ABOUT ME">
-        <div class="rw">
+    <div class="about-me">
+        <div class="rw about-header">
             <div class="bg-icon-3"><i class="fa-solid fa-user icon-3"></i></div>
             <div class="text-5">ABOUT ME</div>
+            <i class="fa-solid fa-chevron-down arrow"></i>
         </div>
-        <div class="text-9">
-            Lorem Ipsum is simply dummy text of the
-            printing and typesetting industry. Lorem
-            Ipsum has been the industry's standard
-            dummy text ever since the 1500s, when an
-            unknown printer took a galley of type.
-        </div>
-        <div class="text-9">
-            It has survived not only five centuries, but
-            also the leap into electronic typesetting
-            unchanged.
+        <div class="about-content">
+            <div class="text-9">
+                Lorem Ipsum is simply dummy text of the
+                printing and typesetting industry. Lorem
+                Ipsum has been the industry's standard
+                dummy text ever since the 1500s, when an
+                unknown printer took a galley of type.
+            </div>
+            <div class="text-9">
+                It has survived not only five centuries, but
+                also the leap into electronic typesetting
+                unchanged.
+            </div>
         </div>
     </div>
     <div class="h-line-2"></div>
@@ -79,32 +82,7 @@
             <div class="bg-icon-3"><i class="fa-solid fa-gear icon-3"></i></div>
             <div class="text-5">SKILLS</div>
         </div>
-        <div>
-            <div class="skill">
-                <span>Adobe Photoshop</span>
-                <input type="range" value="75" max="100">
-            </div>
-
-            <div class="skill">
-                <span>Adobe Illustrator</span>
-                <input type="range" value="70" max="100">
-            </div>
-
-            <div class="skill">
-                <span>Microsoft PowerPoint</span>
-                <input type="range" value="60" max="100">
-            </div>
-
-            <div class="skill">
-                <span>Microsoft Word</span>
-                <input type="range" value="65" max="100">
-            </div>
-
-            <div class="skill">
-                <span>HTML-5/CSS-3</span>
-                <input type="range" value="80" max="100">
-            </div>
-        </div>
+        <div id="skillsContainer"></div>
     </div>
     <div class="h-line-2"></div>
     <div class="LANGUAGE">
@@ -112,11 +90,7 @@
             <div class="bg-icon-3"><i class="fa-solid fa-globe icon-3"></i></div>
             <div class="text-5">LANGUAGE</div>
         </div>
-        <div class="language-fl">
-            <div class="lang">ENGLISH</div>
-            <div class="lang">SPANISH</div>
-            <div class="lang">FRENCH</div>
-        </div>
+        <div class="language-fl" id="languageContainer"></div>
     </div>
     <div class="h-line-2"></div>
     <div class="HOBBIES">
@@ -124,22 +98,7 @@
             <div class="bg-icon-3"><i class="fa-solid fa-flag-checkered icon-3"></i></div>
             <div class="text-5">HOBBIES</div>
         </div>
-        <div>
-            <div class="skill">
-                <span>Book Reading</span>
-                <input type="range" value="60" max="100">
-            </div>
-
-            <div class="skill">
-                <span>Traveling</span>
-                <input type="range" value="60" max="100">
-            </div>
-
-            <div class="skill">
-                <span>Playing Chess</span>
-                <input type="range" value="60" max="100">
-            </div>
-        </div>
+        <div id="hobbies"></div>
         <div class="h-line-2"></div>
     </div>
 </div>
